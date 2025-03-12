@@ -5,3 +5,8 @@
 * {
   font-family: Outfit;
 }
+
+.placeholder-color {
+  color: #ffffff;
+  font-weight: 300;
+}
