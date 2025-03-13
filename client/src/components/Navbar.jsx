@@ -1,57 +1,44 @@
-import React, { useContext } from "react";
+import React from "react";
 import { assets } from "../assets/assets";
-import { Link, useNavigate } from "react-router-dom";
-import { AppContext } from "../context/AppContext";
 
-const Navbar = () => {
-  const { user } = useContext(AppContext);
-
-  const navigate = useNavigate();
+const Description = () => {
   return (
-    <div className="flex items-center justify-between py-4">
-      <Link to="/">
-        <img src={assets.logo} alt="" className="w-28 sm:w-32 lg:w-40" />
-      </Link>
-      <div>
-        {user ? (
-          <div className="flex items-center gap-2 sm:gap-3">
-            <button
-              onClick={() => navigate("/buy")}
-              className="flex items-center gap-2 bg-blue-100 px-4 sm:px-6 py-1.5 sm:py-3 rounded-full hover:scale-105 transition-all duration-700">
-              <img className="w-5" src={assets.credit_star} alt="" />
-              <p className="text-xs sm:text-sm font-medium text-gray-600">
-                Credits Left: 50
-              </p>
-            </button>
-            <p className="text-gray-600 max-sm:hidden pl-4">
-              Hi, <span className="font-semibold">Anas</span>
-            </p>
-            <div className="relative group">
-              <img
-                src={assets.profile_icon}
-                alt="user"
-                className="w-10 drop-shadow"
-              />
-              <div className="absolute hidden group-hover:block top-0 right-0 z-10 text-black rounded pt-12">
-                <ul className="list-none m-0 p-2 bg-white rounded-md  text-sm">
-                  <li className="py-1 mx-2 cursor-pointer pr-10">Logout</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        ) : (
-          <div className="flex items-center gap-2 sm:gap-5">
-            <p onClick={() => navigate("/buy")} className="cursor-pointer">
-              Pricing
-            </p>
-            <button className="bg-zinc-800 text-white px-7 py-2 sm:px-10 text-sm rounded-full">
-              Login
-            </button>
-          </div>
-        )}
+    <div className="flex flex-col items-center justify-center my-16 md:my-24 p-6 md:px-28">
+      <h1 className="text-3xl sm:text-4xl font-semibold mb-2 text-center">
+        Create AI Images
+      </h1>
+      <p className="text-gray-500 mb-8 text-center">
+        Turn Your Imagination Into Visuals
+      </p>
+
+      <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-14">
+        <img
+          src={assets.sample_img_1}
+          className="w-full max-w-md md:w-80 lg:w-96 xl:w-72 xl:max-w-none rounded-lg"
+          alt="AI Generated Image"
+        />
+        <div className="max-w-xl lg:max-w-md">
+          <h2 className="text-2xl md:text-3xl font-medium mb-4">
+            Introducing the AI-Powered Text To Image Generator
+          </h2>
+          <p className="text-gray-600 mb-4">
+            Easily bring your ideas to life with our free AI image generator.
+            Whether you need stunning visuals or unique imagery, our tool
+            transforms your text into eye-catching images with just a few
+            clicks. Imagine it, describe it, and watch it come to life
+            instantly.
+          </p>
+          <p className="text-gray-600">
+            Simply type in a text prompt, and our cutting-edge AI will generate
+            high-quality images in seconds. From product visuals to character
+            designs and portraits, even concepts that don't yet exist can be
+            visualized effortlessly. Powered by advanced AI technology, the
+            creative possibilities are limitless!
+          </p>
+        </div>
       </div>
     </div>
   );
 };
 
-export default Navbar;
+export default Description;
